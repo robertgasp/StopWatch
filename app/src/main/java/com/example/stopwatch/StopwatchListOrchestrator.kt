@@ -14,9 +14,9 @@ class StopwatchListOrchestrator(
     val ticker: StateFlow<String> = mutableTicker
 
     fun start() {
-        if (job == null) {
+        if (job == null) startJob()
             stopWatchStateHolder.start()
-        }
+
     }
 
     private fun startJob() {
