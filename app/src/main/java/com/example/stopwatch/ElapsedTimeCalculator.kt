@@ -1,5 +1,6 @@
 package com.example.stopwatch
 
+import com.example.stopwatch.TimestampProvider
 import com.example.stopwatch.state.StopWatchState
 
 class ElapsedTimeCalculator(

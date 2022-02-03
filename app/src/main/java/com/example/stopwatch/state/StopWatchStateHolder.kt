@@ -12,22 +12,22 @@ class StopWatchStateHolder(
     var currentState: StopWatchState = StopWatchState.Paused(0)
         private set
 
-    fun start(){
+    fun start() {
         currentState = stopwatchStateCalculator.calculateRunningState(currentState)
     }
 
-    fun paused(){
+    fun paused() {
         currentState = stopwatchStateCalculator.calculatePausedState(currentState)
     }
 
-    fun stop(){
+    fun stop() {
         currentState = StopWatchState.Paused(0)
     }
 
-    fun getStringTimeRepresentation():String{
-        val elapsedTime = when (val currentState = currentState){
+    fun getStringTimeRepresentation(): String {
+        val elapsedTime = when (val currentState = currentState) {
             is StopWatchState.Paused -> currentState.elapsingTime
-            is StopWatchState.Running ->elapsedTimeCalculator.calculate(currentState)
+            is StopWatchState.Running -> elapsedTimeCalculator.calculate(currentState)
         }
         return timestampMillisecondsFormatter.format(elapsedTime)
     }
